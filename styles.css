@@ -1,13 +1,18 @@
-/* ========== Variables CSS ========== */
+/* ========== Variables CSS - TALOR Branding ========== */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --text-color: #333;
-    --bg-color: #f8f9fa;
-    --white: #ffffff;
-    --border-radius: 8px;
+    --primary-color: #003380;
+    --secondary-color: #4b4b4b;
+    --accent-color: #caab6f;
+    --text-color: #4b4b4b;
+    --bg-color: #f5f5f5;
+    --bg-light: #ffffff;
+    --gray-light: #999999;
+    --border-radius: 4px;
     --transition: all 0.3s ease;
 }
+
+/* ========== Tipografía ========== */
+@font-family-fallback: 'GT America', 'Inter', sans-serif;
 
 /* ========== Reset y Estilos Generales ========== */
 * {
@@ -21,10 +26,18 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'GT America', 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
 }
 
 .container {
@@ -35,8 +48,8 @@ body {
 
 /* ========== Header y Navegación ========== */
 header {
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -46,14 +59,24 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
+    font-family: 'GT America', sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
     color: var(--primary-color);
 }
 
@@ -68,6 +91,7 @@ nav {
     color: var(--text-color);
     transition: var(--transition);
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
@@ -76,167 +100,323 @@ nav {
 
 /* ========== Sección Hero ========== */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), #0056cc);
-    color: var(--white);
-    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--primary-color), #001a4d);
+    color: var(--bg-light);
+    padding: 120px 20px;
     text-align: center;
-    min-height: 500px;
+    min-height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    color: var(--bg-light);
+    font-family: 'GT America', sans-serif;
+    font-weight: 700;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-btn {
-    background-color: var(--white);
+    background-color: var(--accent-color);
     color: var(--primary-color);
-    padding: 12px 30px;
+    padding: 14px 40px;
     border: none;
     border-radius: var(--border-radius);
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
+    font-family: 'Inter', sans-serif;
 }
 
 .cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(202, 171, 111, 0.3);
+    background-color: #d4bb7f;
+}
+
+/* ========== Sección Servicios ========== */
+.services {
+    padding: 100px 20px;
+    background-color: var(--bg-light);
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray-light);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    background-color: var(--bg-light);
+    padding: 2.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-align: left;
+}
+
+.service-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 16px rgba(0, 51, 128, 0.1);
+    transform: translateY(-4px);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--gray-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.service-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.service-link:hover {
+    color: var(--accent-color);
+}
+
+/* ========== Sección Proyectos ========== */
+.projects {
+    padding: 100px 20px;
+    background-color: var(--bg-color);
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), #001a4d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.project-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.3rem;
+}
+
+.project-category {
+    padding: 0 1.5rem;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-card p {
+    padding: 0.5rem 1.5rem 1.5rem;
+    color: var(--gray-light);
 }
 
 /* ========== Sección About ========== */
 .about {
-    padding: 80px 20px;
-    background-color: var(--white);
+    padding: 100px 20px;
+    background-color: var(--bg-light);
 }
 
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
-    color: var(--primary-color);
 }
 
 .about p {
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.about .highlight {
+    font-weight: 600;
+    color: var(--primary-color);
     font-size: 1.1rem;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* ========== Sección Proyectos ========== */
-.projects {
-    padding: 80px 20px;
-    background-color: var(--bg-color);
-}
-
-.projects h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    color: var(--primary-color);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-    text-align: center;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.project-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-top: 2rem;
 }
 
 /* ========== Sección Contacto ========== */
 .contact {
-    padding: 80px 20px;
-    background-color: var(--white);
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--primary-color), #001a4d);
+    color: var(--bg-light);
     text-align: center;
 }
 
 .contact h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--bg-light);
 }
 
 .contact p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .contact-btn {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 14px 30px;
     border-radius: var(--border-radius);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: var(--transition);
 }
 
 .contact-btn:hover {
-    background-color: #0056cc;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    background-color: #d4bb7f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(202, 171, 111, 0.4);
 }
 
 /* ========== Footer ========== */
 footer {
-    background-color: var(--text-color);
-    color: var(--white);
+    background-color: var(--secondary-color);
+    color: var(--bg-light);
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 20px;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 0.5rem 0;
 }
 
 /* ========== Responsive Design ========== */
 @media (max-width: 768px) {
     .nav-links {
         gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .hero-content p {
         font-size: 1rem;
     }
 
-    .about h2,
+    .services h2,
     .projects h2,
-    .contact h2 {
+    .contact h2,
+    .about h2 {
         font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-btn {
+        width: 100%;
     }
 }
 
@@ -244,6 +424,7 @@ footer {
     nav {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
 
     .nav-links {
@@ -254,10 +435,45 @@ footer {
 
     .nav-links a {
         display: block;
-        padding: 0.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .logo {
+        font-size: 1rem;
     }
 
     .hero {
+        padding: 60px 20px;
+        min-height: 400px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .services,
+    .projects,
+    .about,
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .services h2,
+    .projects h2,
+    .contact h2,
+    .about h2 {
+        font-size: 1.5rem;
+    }
+
+    .service-card,
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+}
         padding: 50px 20px;
         min-height: auto;
     }
